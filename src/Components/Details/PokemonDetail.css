@@ -1,0 +1,44 @@
+.space{
+    margin-top: 10px;
+}
+.imgCard{
+    border-style: groove;
+}
+
+.imgCard:hover{
+    border-color: brown;
+}
+
+.cardHP{
+    border-color: green;
+}
+
+.cardAttack{
+    border-color: red;
+}
+
+.cardAttackSpc{
+    border-color: darkred;
+}
+
+.cardDefense{
+    border-color: blue;
+}
+
+.cardDefenseSpc{
+    border-color: darkblue;
+}
+
+.cardSpeed{
+    border-color: darkorange;
+}
+
+.bagdeType{
+    background-color: green;
+}
+
+.liGroup{
+    border-style: none;
+    padding: 0px;
+    margin-left: 5px;
+}
