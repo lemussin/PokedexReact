@@ -51,4 +51,64 @@ function buildGroupEggs(groups){
     return groups_eggs
 }
 
-export {buildTypes, buildAbilities, convertHeight, convertWeight, getClassByType, buildGroupEggs}
+function getListTypes(listTypes){
+    let types = []
+    listTypes.map(type => {
+        let typeAux = { name: type.type.name }
+        types.push(typeAux)
+    })
+    return types
+}
+
+function getPokedexList(list){
+    let pokedex = []
+    list.filter((dex) => {
+        return dex.language.name == "es"
+    })
+    .map(pokeDes => {
+        let aux = {version: pokeDes.version.name, desc: pokeDes.flavor_text}
+        pokedex.push(aux)
+    })
+    return pokedex
+}
+
+function getPokemonGamesList(list){
+    let games = []
+    list.map(game => {
+        let gamesAux = {name: game.version.name}
+        games.push(gamesAux)
+    })
+    return games
+}
+
+function getBerriesDescList(list){
+    let berriesArr = []
+    list.filter(text => {
+        return text.language.name === 'es'
+    })
+    .map(desc => {
+        let aux = {version: desc.version_group.name, desc: desc.text}
+        berriesArr.push(aux)
+    })
+    return berriesArr
+}
+
+function getBallsDescList(list){
+    let ballDescArr = []
+    list.filter(text => {
+        return text.language.name === 'es'
+    })
+    .map(desc => {
+        let aux = {version: desc.version_group.name, desc: desc.text}
+        ballDescArr.push(aux)
+    })
+    return ballDescArr
+}
+
+export { 
+            buildTypes, 
+            buildAbilities, convertHeight, convertWeight, 
+            getClassByType, buildGroupEggs, getListTypes, 
+            getPokedexList, getPokemonGamesList, getBerriesDescList,
+            getBallsDescList
+       }

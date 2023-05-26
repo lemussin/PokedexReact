@@ -1,45 +1,29 @@
 import React, { useContext } from "react"
-import { useNavigate, useParams } from "react-router-dom"
+import { useParams } from "react-router-dom"
 import { PokemonContext } from "../../context/PokemonContext"
 import { Loading } from "../Loading/Loading"
-import { PokemonDetail } from "../Details/PokemonDetail"
+import { TablePokemon } from "../Elements/TablePokemon"
+import { DescriptionPokemon } from "../Elements/DescriptionPokemon"
+import { TitlePokemon } from "../Elements/TitlePokemon"
+import { getBallsDescList } from "../../Utils/Utils"
 
 function DetailBall(){
     const params = useParams()
     const idBall = Number(params.idBall)
     const { loadingBalls, detailsBalls } = useContext(PokemonContext)
-    const navigate = useNavigate()
-
-    const handleBack = () =>{
-        navigate(-1)
-    }
 
     if(loadingBalls) return <Loading />
 
     const detailPokeball = detailsBalls.find(det => det.id === idBall)
 
+    let ballDescArr = getBallsDescList(detailPokeball.flavor_text_entries)
+
     return(
         <div className="container">
-            <div className="row">
-                <div className="col-12 text-center">
-                    <h5><img src={detailPokeball.sprites.default} alt={detailPokeball.name} /> {detailPokeball.name}</h5>
-                    <hr/>
-                </div>
-            </div>
+            <TitlePokemon imgSrc={detailPokeball.sprites.default} name={detailPokeball.name} />
 
-            <div className="row">
-                <div className="col-10">
-                    <h5 className="text-muted">Información basica: </h5>
-                </div>
-                <div className="col-2 text-end">
-                    <button className="btn btn-link" onClick={handleBack}>Regresar</button>
-                </div>
-            </div>
-            <div className="row">
-                <div className="col-12">
-                    <p>{detailPokeball.effect_entries[0].effect}</p>
-                </div>
-            </div>
+            <DescriptionPokemon descripcion={detailPokeball.effect_entries[0].effect} />
+
             <div className="row">
                 <dl className="row">
                     <dt className="col-sm-3">Costo:</dt>
@@ -52,27 +36,7 @@ function DetailBall(){
             <div className="row">
                 <div className="col-12">
                     <h5 className="text-muted">Entradas: </h5>
-                    <table className="table table-striped table-hover">
-                        <thead className="table-dark">
-                            <tr>
-                                <th>Juego/Versión</th>
-                                <th>Descripción</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {
-                                detailPokeball.flavor_text_entries.filter(text => {
-                                    return text.language.name === 'es'
-                                })
-                                .map(desc => (
-                                    <tr>
-                                        <td>{desc.version_group.name}</td>
-                                        <td>{desc.text}</td>
-                                    </tr>
-                                ))
-                            }
-                        </tbody>
-                    </table>
+                    <TablePokemon listInfo={ballDescArr} />
                 </div>
             </div>
         </div>

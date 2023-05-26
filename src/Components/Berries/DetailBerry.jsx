@@ -1,42 +1,24 @@
 import React, {useContext} from "react"
-import { useNavigate, useParams } from "react-router-dom"
+import { useParams } from "react-router-dom"
 import { PokemonContext } from "../../context/PokemonContext"
+import { TablePokemon } from "../Elements/TablePokemon"
+import { DescriptionPokemon } from "../Elements/DescriptionPokemon"
+import { TitlePokemon } from "../Elements/TitlePokemon"
+import { getBerriesDescList } from "../../Utils/Utils"
 
 function DetailBerry(){
-
-    const navigate = useNavigate()
     const params = useParams()
     const idBerry = Number(params.idBerry)
     const {berries} = useContext(PokemonContext)
     const berry = berries.find(berry => berry.id === idBerry)
 
-    const handleBack = () =>{
-        navigate(-1)
-    }
+    let berriesArr = getBerriesDescList(berry.flavor_text_entries)
 
     return(
         <div className="container">
-             <div className="row">
-                <div className="col-12 text-center">
-                    <h5><img src={berry.sprites.default} alt={berry.name} /> {berry.name}</h5>
-                    <hr/>
-                </div>
-            </div>
+            <TitlePokemon imgSrc={berry.sprites.default} name={berry.name} />
 
-            <div className="row">
-                <div className="col-10">
-                    <h5 className="text-muted">Información basica: </h5>
-                </div>
-                <div className="col-2 text-end">
-                    <button className="btn btn-link" onClick={handleBack}>Regresar</button>
-                </div>
-            </div>
-
-            <div className="row">
-                <div className="col-12">
-                    <p>{berry.effect_entries[0].effect}</p>
-                </div>
-            </div>
+            <DescriptionPokemon descripcion={berry.effect_entries[0].effect} />
 
             <div className="row">
                 <dl className="row">
@@ -50,27 +32,7 @@ function DetailBerry(){
             <div className="row">
                 <div className="col-12">
                     <h5 className="text-muted">Entradas: </h5>
-                    <table className="table table-striped table-hover">
-                        <thead className="table-dark">
-                            <tr>
-                                <th>Juego/Versión</th>
-                                <th>Descripción</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {
-                                berry.flavor_text_entries.filter(text => {
-                                    return text.language.name === 'es'
-                                })
-                                .map(desc => (
-                                    <tr>
-                                        <td>{desc.version_group.name}</td>
-                                        <td>{desc.text}</td>
-                                    </tr>
-                                ))
-                            }
-                        </tbody>
-                    </table>
+                    <TablePokemon listInfo={berriesArr} />
                 </div>
             </div>
         </div>

@@ -76,4 +76,11 @@ const ClasessTypes = [
     { type: 'ice', class: '#66ccff'},
 ]
 
-export { ListPokedex, ClasessTypes }
+const tableType ={
+    pokemon: 1,
+    pokeBall: 2,
+    berry: 3,
+    generation: 4
+}
+
+export { ListPokedex, ClasessTypes, tableType }

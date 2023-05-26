@@ -2,8 +2,12 @@ import React from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import { useDetail } from "../../hooks/useDetail"
 import { Loading } from "../Loading/Loading"
-import { buildAbilities, convertHeight, convertWeight, getClassByType, buildGroupEggs } from "../../Utils/Utils"
+import { buildAbilities, convertHeight, convertWeight, getClassByType, buildGroupEggs, getListTypes, getPokedexList, getPokemonGamesList } from "../../Utils/Utils"
 import './PokemonDetail.css'
+import { ListTypesPokemon } from "../Elements/ListTypesPokemon"
+import { TablePokemon } from "../Elements/TablePokemon"
+import { AccordionPokemon } from "../Elements/AccordionPokemon"
+import { TitlePokemon } from "../Elements/TitlePokemon"
 
 function PokemonDetail()
 {
@@ -18,13 +22,15 @@ function PokemonDetail()
 
     if(loadingDetails) return <Loading />
 
+    //Generamos un array que enviaremos al elemento ListTypesPokemon
+    let types = getListTypes(pokemonDetails.types)
+    let pokedex = getPokedexList(pokemonSpecie.flavor_text_entries)
+    let games = getPokemonGamesList(pokemonDetails.game_indices)
+    
     return(
         <>
-            <div className="row">
-                <div className="col-12 text-center">
-                    <h4>{pokemonDetails.name.toUpperCase()} </h4>
-                </div>
-            </div>
+            <TitlePokemon imgSrc={pokemonDetails.sprites.front_default} name={pokemonDetails.name.toUpperCase()} />
+
             <div className="row">
                 <div className="col-10">
                     <h5>Sprites: </h5>
@@ -32,7 +38,7 @@ function PokemonDetail()
                 <div className="col-2 text-end">
                     <button type="button" class="btn btn-link" onClick={handleRegresar}>Regresar</button>
                 </div>
-                <hr/>
+                
             </div>
             <div className="row">
                 <div className="col-2 text-center">
@@ -90,27 +96,7 @@ function PokemonDetail()
                 <div className="col 12">
                     <h5 className="text-muted">Entradas de la Pokédex: </h5>
                     <hr/>
-                    <table className="table table-striped table-hover">
-                        <thead className="table-dark">
-                            <tr>
-                                <th>Juego/Versión</th>
-                                <th>Descripción</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {
-                                pokemonSpecie.flavor_text_entries.filter((dex) => {
-                                    return dex.language.name == "es"
-                                })
-                                .map(pokeDes => (
-                                    <tr>
-                                        <td>{pokeDes.version.name}</td>
-                                        <td>{pokeDes.flavor_text}</td>
-                                    </tr>
-                                ))
-                            }
-                        </tbody>
-                    </table>
+                    <TablePokemon listInfo={pokedex} />
                 </div>
             </div>
             <br/>
@@ -131,11 +117,7 @@ function PokemonDetail()
                         </dd>
                         <dt className="col-sm-3">Tipo(s):</dt>
                         <dd className="col-sm-9">
-                            <ul className="list-group list-group-horizontal">
-                                {pokemonDetails.types.map(type => (
-                                    <li className="list-group-item liGroup"><span className="badge" style={{backgroundColor: getClassByType(type.type.name)}}>{type.type.name}</span></li>
-                                ))}
-                            </ul>    
+                            <ListTypesPokemon types={types}/>
                         </dd>
                         <dt className="col-sm-3">Altura:</dt>
                         <dd className="col-sm-9">{convertHeight(pokemonDetails.height)} m</dd>
@@ -256,15 +238,9 @@ function PokemonDetail()
             <br/>
             <div className="row space">
                 <h5>Juegos donde aparece:</h5>
-                <div className="col-12">
-                    <ol className="list-group list-group-numbered">
-                        {
-                            pokemonDetails.game_indices.map(game => (
-                                <li className="list-group-item">Pokémon {game.version.name}</li>
-                            ))
-                        }
-                    </ol>
-                </div>
+                <AccordionPokemon title="Ver Juegos:" idHeading="AccGames" 
+                    listItems={games} typeAccordion={1} 
+                />
             </div>
         </>
         
