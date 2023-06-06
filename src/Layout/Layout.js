@@ -20,7 +20,7 @@ function Layout({children}){
                                 </li>
                                 <li>
                                     <a href="#submenu1" data-bs-toggle="collapse" className="nav-link px-0 align-middle sidebarText">
-                                        <i className="fs-4 bi-speedometer2"></i> <span className="ms-1 d-none d-sm-inline">Pokédex</span> 
+                                        <i className="fs-4 bi bi-book"></i> <span className="ms-1 d-none d-sm-inline">Pokédex</span> 
                                     </a>
                                     <ul className="collapse nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
                                         <li className="w-100">
@@ -54,7 +54,7 @@ function Layout({children}){
                                 </li>
                                 <li>
                                     <a href="#submenu2" data-bs-toggle="collapse" className="nav-link px-0 align-middle sidebarText">
-                                        <i className="fs-4 bi-speedometer2"></i> <span className="ms-1 d-none d-sm-inline">Generaciones</span>
+                                        <i className="fs-4 bi bi-globe"></i> <span className="ms-1 d-none d-sm-inline">Generaciones</span>
                                     </a>
                                     <ul className="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
                                         <li>
@@ -89,17 +89,17 @@ function Layout({children}){
                                 <li className="nav-item">
                                     <Link to={'/ListBalls'} className="nav-link align-middle px-0 sidebarText"
                                     >
-                                        <i className="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Poke Balls</span>
+                                        <i className="fs-4 bi bi-rocket"></i> <span class="ms-1 d-none d-sm-inline">Poke Balls</span>
                                     </Link>
                                 </li>
                                 <li className="nav-item">
                                     <Link to={'/ListSpecialBalls'} className="nav-link align-middle px-0 sidebarText">
-                                        <i className="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Special Balls</span>
+                                        <i className="fs-4 bi bi-rocket-takeoff"></i> <span class="ms-1 d-none d-sm-inline">Special Balls</span>
                                     </Link>
                                 </li>
                                 <li className="nav-item">
                                     <Link to={'/listBerries'} className="nav-link align-middle px-0 sidebarText">
-                                        <i className="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Berries</span>
+                                        <i className="fs-4 bi bi-apple"></i> <span class="ms-1 d-none d-sm-inline">Berries</span>
                                     </Link>
                                 </li>
                             </ul>                            

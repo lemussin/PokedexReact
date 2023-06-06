@@ -1,13 +1,11 @@
 import { ClasessTypes } from "../Data/Data"
 
-const CONVERT_VALUE_CM = 30.48
-const CONVERT_VALUE_KG = 2.20462262
 const VALUE_CONVERTION = 10.0
 
 function buildTypes(types){
     let typesPokemon = ''
     for(var i = 0; i < types.length; i++){
-        if(i ===0 )
+        if(i === 0)
             typesPokemon = types[i].type.name
         else
             typesPokemon += ', ' + types[i].type.name
@@ -63,7 +61,7 @@ function getListTypes(listTypes){
 function getPokedexList(list){
     let pokedex = []
     list.filter((dex) => {
-        return dex.language.name == "es"
+        return dex.language.name === "es"
     })
     .map(pokeDes => {
         let aux = {version: pokeDes.version.name, desc: pokeDes.flavor_text}

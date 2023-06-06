@@ -27,7 +27,7 @@ function PokemonCard({idPokedex, id, image, name, types, abilities, height, weig
             <div className="card-body">
                 <button type="button" class="btn btn-link"
                     onClick={() => handleOnClick(id)}
-                >Ver detalles</button>
+                ><i className="bi bi-arrow-right-short"></i> Ver detalles</button>
             </div>
         </div>
     )

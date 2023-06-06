@@ -36,7 +36,9 @@ function PokemonDetail()
                     <h5>Sprites: </h5>
                 </div>
                 <div className="col-2 text-end">
-                    <button type="button" class="btn btn-link" onClick={handleRegresar}>Regresar</button>
+                    <button type="button" class="btn btn-link" onClick={handleRegresar}>
+                        <i className="bi bi-arrow-left"></i> Regresar
+                    </button>
                 </div>
                 
             </div>

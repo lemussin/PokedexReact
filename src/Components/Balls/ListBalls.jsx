@@ -32,7 +32,11 @@ function ListBalls({loadingBalls, balls, detailsBalls}){
                                 <tr>
                                     <td><img src={getSprite(ball.name, detailsBalls)} alt={ball.name} /></td>
                                     <td>{ball.name}</td>
-                                    <td><button className="btn btn-link" onClick={() => handleClick(getIdBall(ball.name, detailsBalls))}>Ver Detalles</button></td>
+                                    <td>
+                                        <button className="btn btn-link" onClick={() => handleClick(getIdBall(ball.name, detailsBalls))}>
+                                        <i className="bi bi-arrow-right"></i> Ver Detalles
+                                        </button>
+                                    </td>
                                 </tr>
                             ))
                         }

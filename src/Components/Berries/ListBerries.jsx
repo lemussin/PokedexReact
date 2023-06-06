@@ -32,7 +32,11 @@ function ListBerries(){
                                 <tr>
                                     <td><img src={berry.sprites.default} alt={berry.name} /></td>
                                     <td>{berry.name}</td>
-                                    <td><button className="btn btn-link" onClick={() => handleDetail(berry.id)}>Ver Detalles</button></td>
+                                    <td>
+                                        <button className="btn btn-link" onClick={() => handleDetail(berry.id)}>
+                                            <i className="bi bi-arrow-right"></i> Ver Detalles
+                                        </button>
+                                    </td>
                                 </tr>
                             ))
                         }

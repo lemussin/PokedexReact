@@ -16,7 +16,7 @@ function DescriptionPokemon({descripcion}){
                     <h5 className="text-muted">Información básica: </h5>
                 </div>
                 <div className="col-2 text-end">
-                    <button className="btn btn-link" onClick={handleBack}>Regresar</button>
+                    <button className="btn btn-link" onClick={handleBack}><i className="bi bi-arrow-left"></i>Regresar</button>
                 </div>
             </div>
             <div className="row">

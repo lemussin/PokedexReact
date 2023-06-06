@@ -2,7 +2,7 @@ import React from 'react';
 import { HashRouter, BrowserRouter, Routes, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap';
-//import 'bootstrap-icons/font/bootstrap-icons.css';
+import 'bootstrap-icons/font/bootstrap-icons.css';
 import { Layout } from './Layout/Layout';
 import { Home } from './Components/Home/Home';
 import { About } from './Components/About/About';
