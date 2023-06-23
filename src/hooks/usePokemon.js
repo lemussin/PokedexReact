@@ -4,6 +4,10 @@ function usePokemon(limit , offset ){
     const [loadingPokedex, setLoadingPokedex] = React.useState(true)
     const [pokemonDetails, setPokemonDetails] = React.useState([])
 
+    //Función de buscar Pokemon
+    const [search, setSearch] = React.useState('')
+    const [filteredList, setFilteredList] = React.useState([])
+
     const getAllPokemons = async () => {
       setPokemonDetails([])
         const res = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`);
@@ -19,7 +23,7 @@ function usePokemon(limit , offset ){
             //setPokemonDetails((currentList) => [...currentList, data]);
           });
           setPokemonDetails(detailsArr)
-
+          setFilteredList(detailsArr)
         }
 
         createPokemonObject(data.results);
@@ -42,13 +46,22 @@ function usePokemon(limit , offset ){
     useEffect(() => {
         setLoadingPokedex(true)
         getAllPokemons()
-        //getAllPokemonsNoAsync()
         setTimeout(() => {
+          setSearch('')
           setLoadingPokedex(false)
-        }, 1500)
+        }, 2500)
     }, [limit]);
 
-    const pokedex = {loadingPokedex, pokemonDetails}
+    //Effect to filter the Pokemon List and render the info in the View
+    useEffect(() => {
+      if(search.length === 0)
+        setFilteredList(pokemonDetails)
+      let lista = pokemonDetails.filter(pokemon => pokemon.name.toLowerCase().includes(search.toLowerCase()))
+      setFilteredList(lista)
+
+    }, [search])
+
+    const pokedex = {loadingPokedex, pokemonDetails, search, setSearch, filteredList}
 
     return { pokedex }
 }

@@ -8,12 +8,13 @@ function Header(){
         <nav className="navbar navbarPoke">
             <div className="container-fluid">
                 <Link className="navbar-brand" to={'/'}>
-                    <img src={logo} alt="Logo" width="110" height="32" class="d-inline-block align-text-top" />
+                    <img src={logo} alt="Logo" width="110" height="31" class="d-inline-block align-text-top" />
                 </Link>
-                <form className="d-flex" role="search">
-                    <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                    <button className="btn btn-outline-dark" type="button">Search</button>
-                </form>
+                <ul className="list-group list-group-horizontal">
+                    <li className="list-group-item"><a href="https://www.pokemon.com/es" target="_blank">Web Oficial</a></li>
+                    <li className="list-group-item"><a href="https://home.pokemon.com/es-mx/" target="_blank">Pokémon Home</a></li>
+                    <li className="list-group-item"><a href="https://watch.pokemon.com/es-es/" target="_blank">Pokémon TV</a></li>
+                </ul>
             </div>
         </nav>
     )
