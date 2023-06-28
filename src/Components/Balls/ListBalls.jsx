@@ -23,7 +23,7 @@ function ListBalls({loadingBalls, balls, detailsBalls}){
                         <tr>
                             <th>Sprite</th>
                             <th>Nombre</th>
-                            <th>Ver Detalles</th>
+                            <th>Detalles</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -34,7 +34,7 @@ function ListBalls({loadingBalls, balls, detailsBalls}){
                                     <td>{ball.name}</td>
                                     <td>
                                         <button className="btn btn-link" onClick={() => handleClick(getIdBall(ball.name, detailsBalls))}>
-                                        <i className="bi bi-arrow-right"></i> Ver Detalles
+                                            Ver Detalles
                                         </button>
                                     </td>
                                 </tr>

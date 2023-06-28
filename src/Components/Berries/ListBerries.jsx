@@ -23,7 +23,7 @@ function ListBerries(){
                         <tr>
                             <th>Sprite</th>
                             <th>Nombre</th>
-                            <th>Ver Detalles</th>
+                            <th>Detalles</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -34,7 +34,7 @@ function ListBerries(){
                                     <td>{berry.name}</td>
                                     <td>
                                         <button className="btn btn-link" onClick={() => handleDetail(berry.id)}>
-                                            <i className="bi bi-arrow-right"></i> Ver Detalles
+                                            Ver Detalles
                                         </button>
                                     </td>
                                 </tr>

@@ -5,7 +5,7 @@ function Search({search, setSearch}){
 
     return(
         <div className="div-search">
-            <label className="labelSearch">Buscar:</label>
+            <span class="input-group-text iconSearch" id="basic-addon1"><i class="bi bi-search"></i></span>
             <input className="form-control inputSearch" placeholder="Buscar Pokemon" value={search} onChange={(event) => setSearch(event.target.value)}/>
         </div>
     )

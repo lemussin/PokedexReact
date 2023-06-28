@@ -1,0 +1,10 @@
+.enlace{
+    text-decoration: none;
+    color: black;
+    text-transform: capitalize;
+}
+
+.enlace:hover{
+    text-decoration: underline;
+    color: grey;
+}

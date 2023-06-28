@@ -102,6 +102,11 @@ function Layout({children}){
                                         <i className="fs-4 bi bi-apple"></i> <span class="ms-1 d-none d-sm-inline">Berries</span>
                                     </Link>
                                 </li>
+                                <li className="nav-item">
+                                    <Link to={'/Suggestions'} className="nav-link align-middle px-0 sidebarText">
+                                        <i className="fs-4 bi bi-envelope-at"></i> <span class="ms-1 d-none d-sm-inline">Suggestions</span>
+                                    </Link>
+                                </li>
                             </ul>                            
                         </div>
                     </div>

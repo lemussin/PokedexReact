@@ -5,6 +5,7 @@ import { usePokemon } from "../../hooks/usePokemon";
 import { PokemonList } from "../PokemonList/PokemonList";
 import { Loading } from "../Loading/Loading";
 import { Search } from "../Search/Search";
+import './Pokedex.css'
 
 function Pokedex(){
     const params = useParams();
@@ -17,7 +18,7 @@ function Pokedex(){
     if(loadingPokedex) return <Loading />
 
     return(
-        <>
+        <div className="backgroundDexList">
             <h5>Pokédex de la Región {pokedexRegional.region}</h5>
             <div className="row">
                 <div className="col-4">
@@ -29,7 +30,7 @@ function Pokedex(){
             </div>
             
             {!loadingPokedex && <PokemonList pokemonDetails={filteredList} idPokedex={idPokedex} />}
-        </>
+        </div>
     )
 }
 

@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 function useDetail(idPokemon){
     const [loadingDetails, setLoadingDetails] = useState(true)
     const [pokemonDetails, setPokemondetails] = useState({})
-    const [pokemonLocations, setPokemonLocations] = useState({})
+    const [pokemonLocations, setPokemonLocations] = useState([])
     const [pokemonSpecie, setPokemonSpecie] = useState({})
 
     const getPokemon = () => {

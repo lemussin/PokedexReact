@@ -21,13 +21,13 @@ function PokemonCard({idPokedex, id, image, name, types, abilities, height, weig
             </div>
             <ul className="list-group list-group-flush">
                 <li className="list-group-item">Tipo(s): {buildTypes(types)}</li>
-                <li className="list-group-item">Habilidad(es): {buildAbilities(abilities)}</li>
+                <li className="list-group-item habilities">Habilidad(es): {buildAbilities(abilities)}</li>
                 <li className="list-group-item">Altura: {convertHeight(height)} m, Peso: {convertWeight(weight)} kg</li>
             </ul>
             <div className="card-body">
-                <button type="button" class="btn btn-link"
+                <button type="button" class="btn linked"
                     onClick={() => handleOnClick(id)}
-                ><i className="bi bi-arrow-right-short"></i> Ver detalles</button>
+                >Ver detalles<i className="bi bi-arrow-right-short"></i></button>
             </div>
         </div>
     )

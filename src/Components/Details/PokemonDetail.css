@@ -1,6 +1,20 @@
+.linkedBack{
+    background: goldenrod;
+    color: #fff;
+    border-radius: 10px 0 10px 0;
+}
+
+.linkedBack:hover{
+    background: goldenrod;
+    color: #000;
+    border-radius: 0;
+    transition: .4s;
+}
+
 .space{
     margin-top: 10px;
 }
+
 .imgCard{
     border-style: groove;
 }

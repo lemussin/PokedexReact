@@ -1,7 +1,23 @@
 .div-search{
     display: flex;
+    justify-content: flex-end;
+}
+
+.labelSearch{
+    line-height: 37px;
+}
+
+.iconSearch{
+    margin-right: -9px;
 }
 
 .inputSearch{
     margin-left: 10px;
+    width: 25%;
+    transition: .8s;
+}
+
+.inputSearch:focus{
+    width: 100%;
+    transition: .8s;
 }

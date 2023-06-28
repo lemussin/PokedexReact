@@ -1,8 +1,30 @@
 .cardPokemon{
     margin-left: 25px;
     margin-top: 15px;
+    border: 1px solid darkolivegreen;
 }
 
 .cardPokemon:hover{
     border-color: darkred;
+}
+
+.habilities{
+    height: 58px;
+    overflow: hidden;
+}
+
+.linked{
+    display: block;
+    text-decoration: none;
+    background: goldenrod;
+    color: #fff;
+    border-radius: 0px 15px 0px 15px;
+    margin: 0 auto;
+}
+
+.linked:hover{
+    background: goldenrod;
+    color: black;
+    border-radius: 0;
+    transition: .4s;
 }

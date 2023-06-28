@@ -1,13 +1,7 @@
 import React from "react"
-import { useNavigate } from "react-router-dom"
+import { BackButton } from "./BackButton/BackButton"
 
 function DescriptionPokemon({descripcion}){
-
-    const navigate = useNavigate()
-
-    const handleBack = () =>{
-        navigate(-1)
-    }
 
     return(
         <React.Fragment>
@@ -16,7 +10,7 @@ function DescriptionPokemon({descripcion}){
                     <h5 className="text-muted">Información básica: </h5>
                 </div>
                 <div className="col-2 text-end">
-                    <button className="btn btn-link" onClick={handleBack}><i className="bi bi-arrow-left"></i>Regresar</button>
+                    <BackButton />
                 </div>
             </div>
             <div className="row">
