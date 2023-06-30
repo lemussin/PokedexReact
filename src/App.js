@@ -16,6 +16,7 @@ import { ListBerries } from './Components/Berries/ListBerries';
 import { DetailBerry } from './Components/Berries/DetailBerry';
 import { DetailGeneration } from './Components/Generation/DetailGeneration';
 import { SuggestionForm } from './Components/Suggestions/SuggestionForm';
+import { MyFavorites } from './Components/MyFavorites/MyFavorites';
 
 function App() {
   const { loadingBalls, balls, specialBalls, detailsBalls, berries, generations, favorites, addFavorite, deleteFavorite } = useAPI()
@@ -48,6 +49,7 @@ function App() {
             <Route path='/detailBerry/:idBerry' element={<DetailBerry />} />
             <Route path='/generation/:idGen' element={<DetailGeneration /> } />
             <Route path='/Suggestions' element={<SuggestionForm />} />
+            <Route path='/MyFavorites' element={<MyFavorites />} />
             <Route path='*' element={<p>Not found</p>} />
           </Routes>
         </Layout>

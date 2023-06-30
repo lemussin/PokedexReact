@@ -1,13 +1,14 @@
 import React from "react"
-import { useNavigate, useParams } from "react-router-dom"
+import { Link, useNavigate, useParams } from "react-router-dom"
 import { useDetail } from "../../hooks/useDetail"
 import { Loading } from "../Loading/Loading"
 import { buildAbilities, convertHeight, convertWeight, getClassByType, buildGroupEggs, getListTypes, getPokedexList, getPokemonGamesList } from "../../Utils/Utils"
-import './PokemonDetail.css'
 import { ListTypesPokemon } from "../Elements/ListTypesPokemon"
 import { TablePokemon } from "../Elements/TablePokemon"
 import { AccordionPokemon } from "../Elements/AccordionPokemon"
 import { TitlePokemon } from "../Elements/TitlePokemon/TitlePokemon"
+import { getLinkGeneration } from "../../Utils/Utils"
+import './PokemonDetail.css'
 
 function PokemonDetail()
 {
@@ -114,7 +115,7 @@ function PokemonDetail()
                                 <dt className="col-sm-3">Pokédex Nacional:</dt>
                                 <dd className="col-sm-3">#{pokemonSpecie.pokedex_numbers[0].entry_number}</dd>
                                 <dt className="col-sm-3">Generación:</dt>
-                                <dd className="col-sm-3">{pokemonSpecie.generation.name}</dd>
+                                <dd className="col-sm-3"><Link to={getLinkGeneration(pokemonSpecie.generation.name)}>{pokemonSpecie.generation.name}</Link></dd>
                             </dl>
                         </dd>
                         <dt className="col-sm-3">Tipo(s):</dt>

@@ -40,6 +40,11 @@
     cursor: pointer;
 }
 
+.formElement::placeholder{
+    color: rgb(172, 110, 110);
+    font-family: 'Courier New', Courier, monospace;
+}
+
 .btnStyle{
     display: block;
     margin: 12px auto;

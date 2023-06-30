@@ -1,0 +1,57 @@
+.contenedorFavorites{
+    width: 100%;
+    border: 2px solid coral;
+    box-shadow: -5px -5px 0px coral;
+    border-radius: 5px;
+}
+
+.tituloMyFav{
+    text-align: center;
+    font-weight: bold;
+    color: darkred;
+    margin: 0 auto;
+    width: 95%;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    border-bottom: 2px solid darkgray;
+}
+
+.listaMyFav{
+    padding: 0;
+    list-style: none;
+    counter-reset: contador;
+    margin-top: 20px;
+}
+
+.listaMyFav li{
+    margin-bottom: 5px;
+    margin-left: 5px;
+}
+
+.listaMyFav li::before{
+    display: inline-block;
+    content: counter(contador);
+    counter-increment: contador;
+    background: brown;
+    color: white;
+    text-align: center;
+    width: 22px;
+    height: 22px;
+    line-height: 22px;
+    border-radius: 50%;
+}
+
+.enlaceFav{
+    text-transform: capitalize;
+    margin-left: 10px;
+    text-decoration: none;
+    color: rgb(72, 3, 3);
+    /* border-bottom: 1px solid rgb(72, 3, 3); */
+}
+
+.enlaceFav:hover{
+    font-weight: 700;
+    border-bottom: none;
+    color: darkred;
+    transition: .4s;
+}

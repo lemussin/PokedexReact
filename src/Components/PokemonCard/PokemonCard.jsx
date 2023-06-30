@@ -14,7 +14,7 @@ function PokemonCard({id, image, name, types, abilities, height, weight, pokemon
     }
 
     const handleIsFavorite = () =>{
-        addFavorite(id)
+        addFavorite(id, name)
         SetIsFavorite(true)
     }
 

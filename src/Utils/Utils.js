@@ -1,4 +1,4 @@
-import { ClasessTypes } from "../Data/Data"
+import { ClasessTypes, generations } from "../Data/Data"
 
 const VALUE_CONVERTION = 10.0
 
@@ -103,10 +103,16 @@ function getBallsDescList(list){
     return ballDescArr
 }
 
+function getLinkGeneration(name){
+    let link
+    link = generations.find(gen => gen.name === name)
+    return `/generation/${link.idGen}`
+}
+
 export { 
             buildTypes, 
             buildAbilities, convertHeight, convertWeight, 
             getClassByType, buildGroupEggs, getListTypes, 
             getPokedexList, getPokemonGamesList, getBerriesDescList,
-            getBallsDescList
+            getBallsDescList, getLinkGeneration
        }

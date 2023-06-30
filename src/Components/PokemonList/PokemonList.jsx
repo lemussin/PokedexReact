@@ -7,7 +7,7 @@ function PokemonList({pokemonDetails, idPokedex}){
     const { favorites } = useContext(PokemonContext)
 
     const getIsFavorite = (id) => {
-        if(favorites.filter(pk => pk === id).length > 0) 
+        if(favorites.filter(pk => pk.id === id).length > 0) 
             return true 
         else 
             return false

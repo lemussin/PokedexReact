@@ -83,4 +83,16 @@ const tableType ={
     generation: 4
 }
 
-export { ListPokedex, ClasessTypes, tableType }
+const generations = [
+    { name: 'generation-i', idGen: 1},
+    { name: 'generation-ii', idGen: 2},
+    { name: 'generation-iii', idGen: 3},
+    { name: 'generation-iv', idGen: 4},
+    { name: 'generation-v', idGen: 5},
+    { name: 'generation-vi', idGen: 6},
+    { name: 'generation-vii', idGen: 7},
+    { name: 'generation-viii', idGen: 8},
+    { name: 'generation-ix', idGen: 9},
+]
+
+export { ListPokedex, ClasessTypes, tableType, generations }

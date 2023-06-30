@@ -87,14 +87,15 @@ function useAPI(){
         }, 1800)
     }, [])
 
-    const addFavorite = (id) =>{
-        const newList = [...favorites, id]
+    const addFavorite = (id, name) =>{
+        const newFav = {id: id, name: name}
+        const newList = [...favorites, newFav]
         SetFavorites(newList);
         saveLocalStorage(newList)
     }
 
     const deleteFavorite = (id) =>{
-        const newFavorites = favorites.filter(pk => pk !== id);
+        const newFavorites = favorites.filter(pk => pk.id !== id);
         SetFavorites(newFavorites);
         saveLocalStorage(newFavorites)
     }

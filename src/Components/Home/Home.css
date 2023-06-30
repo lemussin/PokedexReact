@@ -4,6 +4,7 @@
     height: 450px;
     background-image: url(../../images/wall.jpg);
     background-size: cover;
+    background-position: center;
     background-attachment: fixed;
     border: 1px solid crimson;
     box-shadow: 1px 1px 10px 5px #2d3436;
