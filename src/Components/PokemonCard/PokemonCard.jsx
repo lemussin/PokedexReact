@@ -1,18 +1,48 @@
-import React from "react"
+import React, { useState, useContext } from "react"
 import './PokemonCard.css'
 import { Link, useNavigate } from "react-router-dom"
 import { buildTypes, buildAbilities,convertHeight, convertWeight } from "../../Utils/Utils"
+import { PokemonContext } from "../../context/PokemonContext"
 
-function PokemonCard({idPokedex, id, image, name, types, abilities, height, weight}){
-    
+function PokemonCard({id, image, name, types, abilities, height, weight, pokemonFavorite}){
+    const { addFavorite, deleteFavorite } = useContext(PokemonContext)
+    const [isFavorite, SetIsFavorite] = useState(pokemonFavorite)
     const navigate = useNavigate()
 
     const handleOnClick = (id) =>{
         navigate(`/detail/${id}`)
     }
 
+    const handleIsFavorite = () =>{
+        addFavorite(id)
+        SetIsFavorite(true)
+    }
+
+    const handleIsNotFavorite = () =>{
+        deleteFavorite(id)
+        SetIsFavorite(false)
+    }
+
+    const renderIcon = () =>{
+        if(isFavorite){
+            return(
+                <button className="btnFav" onClick={handleIsNotFavorite}>
+                    <i class="bi bi-star-fill iconFav"></i>
+                </button>
+            )
+        }
+        else{
+            return(
+                <button className="btnFav" onClick={handleIsFavorite}>
+                    <i class="bi bi-star"></i>
+                </button>
+            )
+        }
+    }
+
     return (
         <div className="card cardPokemon" style={{width: '18rem'}}>
+            {renderIcon()}
             <Link to={`/detail/${id}`}>
                 <img src={image} class="card-img-top" alt={name} />
             </Link>

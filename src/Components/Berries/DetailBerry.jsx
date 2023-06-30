@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom"
 import { PokemonContext } from "../../context/PokemonContext"
 import { TablePokemon } from "../Elements/TablePokemon"
 import { DescriptionPokemon } from "../Elements/DescriptionPokemon"
-import { TitlePokemon } from "../Elements/TitlePokemon"
+import { TitlePokemon } from "../Elements/TitlePokemon/TitlePokemon"
 import { getBerriesDescList } from "../../Utils/Utils"
 
 function DetailBerry(){

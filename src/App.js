@@ -18,10 +18,10 @@ import { DetailGeneration } from './Components/Generation/DetailGeneration';
 import { SuggestionForm } from './Components/Suggestions/SuggestionForm';
 
 function App() {
-  const { loadingBalls, balls, specialBalls, detailsBalls, berries, generations } = useAPI()
+  const { loadingBalls, balls, specialBalls, detailsBalls, berries, generations, favorites, addFavorite, deleteFavorite } = useAPI()
 
   return ( 
-    <PokemonContext.Provider value={{loadingBalls, balls, specialBalls, detailsBalls, berries, generations}}>
+    <PokemonContext.Provider value={{loadingBalls, balls, specialBalls, detailsBalls, berries, generations, favorites, addFavorite, deleteFavorite}}>
       <BrowserRouter>
         <Layout>
           <Routes>

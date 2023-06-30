@@ -7,7 +7,7 @@ import './PokemonDetail.css'
 import { ListTypesPokemon } from "../Elements/ListTypesPokemon"
 import { TablePokemon } from "../Elements/TablePokemon"
 import { AccordionPokemon } from "../Elements/AccordionPokemon"
-import { TitlePokemon } from "../Elements/TitlePokemon"
+import { TitlePokemon } from "../Elements/TitlePokemon/TitlePokemon"
 
 function PokemonDetail()
 {
@@ -26,7 +26,7 @@ function PokemonDetail()
     let types = getListTypes(pokemonDetails.types)
     let pokedex = getPokedexList(pokemonSpecie.flavor_text_entries)
     let games = getPokemonGamesList(pokemonDetails.game_indices)
-    
+
     return(
         <>
             <TitlePokemon imgSrc={pokemonDetails.sprites.front_default} name={pokemonDetails.name.toUpperCase()} />

@@ -4,6 +4,17 @@
     border: 1px solid darkolivegreen;
 }
 
+.btnFav{
+    border: none;
+    background: none;
+    text-align: right;
+}
+
+.iconFav{
+    color: goldenrod;
+    text-align: right;
+}
+
 .cardPokemon:hover{
     border-color: darkred;
 }

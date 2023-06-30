@@ -4,7 +4,7 @@ import { PokemonContext } from "../../context/PokemonContext"
 import { Loading } from "../Loading/Loading"
 import { TablePokemon } from "../Elements/TablePokemon"
 import { DescriptionPokemon } from "../Elements/DescriptionPokemon"
-import { TitlePokemon } from "../Elements/TitlePokemon"
+import { TitlePokemon } from "../Elements/TitlePokemon/TitlePokemon"
 import { getBallsDescList } from "../../Utils/Utils"
 
 function DetailBall(){

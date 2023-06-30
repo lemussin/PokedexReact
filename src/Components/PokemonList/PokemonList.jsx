@@ -1,14 +1,23 @@
-import React from "react";
+import React, {useContext} from "react";
 import { PokemonCard } from "../PokemonCard/PokemonCard";
+import { PokemonContext } from "../../context/PokemonContext"
+
 
 function PokemonList({pokemonDetails, idPokedex}){
+    const { favorites } = useContext(PokemonContext)
+
+    const getIsFavorite = (id) => {
+        if(favorites.filter(pk => pk === id).length > 0) 
+            return true 
+        else 
+            return false
+    }
 
     return(
         <div className="row">
             {
                 pokemonDetails.map(poke => (
                     <PokemonCard
-                        idPokedex={idPokedex}
                         id={poke.id}
                         image={poke.sprites.front_default}
                         name={poke.name}
@@ -16,6 +25,8 @@ function PokemonList({pokemonDetails, idPokedex}){
                         abilities={poke.abilities}
                         height={poke.height}
                         weight={poke.weight}
+                        pokemonFavorite={getIsFavorite(poke.id)}
+                        key={poke.id}
                     />
                 ))
             }

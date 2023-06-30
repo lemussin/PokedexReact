@@ -7,6 +7,7 @@ function useAPI(){
     const [detailsBalls, SetDetailBalls] = React.useState([])
     const [berries, setBerries] = React.useState([])
     const [generations, setGenerations] = React.useState([])
+    const [favorites, SetFavorites] = React.useState([])
 
     const getPokeBalls = () =>{
         fetch('https://pokeapi.co/api/v2/item-category/34')
@@ -63,19 +64,43 @@ function useAPI(){
         })
     }
 
+    const getFavoritesLS = () =>{
+        const localStorageItem = localStorage.getItem('FAVORITES_POKEMON');
+        const arrParsed = JSON.parse(localStorageItem)
+        SetFavorites(arrParsed)
+    }
+
+    const saveLocalStorage = (listFavorite) => {
+        const stringifiedArr = JSON.stringify(listFavorite)
+        localStorage.setItem('FAVORITES_POKEMON',stringifiedArr)
+    }
+
     React.useEffect(() => {
         SetLoadingBalls(true)
         getPokeBalls()
         getSpecialBalls()
         getBerries()
         getGenerations()
+        getFavoritesLS()
         setTimeout(() => {
             SetLoadingBalls(false)
-        }, 1500)
+        }, 1800)
     }, [])
 
+    const addFavorite = (id) =>{
+        const newList = [...favorites, id]
+        SetFavorites(newList);
+        saveLocalStorage(newList)
+    }
 
-    return {loadingBalls, balls, specialBalls, detailsBalls, berries, generations}
+    const deleteFavorite = (id) =>{
+        const newFavorites = favorites.filter(pk => pk !== id);
+        SetFavorites(newFavorites);
+        saveLocalStorage(newFavorites)
+    }
+
+
+    return {loadingBalls, balls, specialBalls, detailsBalls, berries, generations, favorites, addFavorite, deleteFavorite}
 
 }
 
