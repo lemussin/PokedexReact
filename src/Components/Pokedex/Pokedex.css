@@ -1,3 +1,31 @@
-.backgroundDexList{
-    
+.backTop{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin-right: 20px;
+    margin-bottom: 15px;
+}
+
+.btnBackTop{
+    border-radius: 50%;
+    text-align: center;
+    height: 35px;
+    width: 35px;
+    border: none;
+    background: goldenrod;
+    color: beige;
+    transition: .3s;
+    display: block;
+    line-height: 35px;
+}
+
+.btnBackTop:hover{
+    height: 40px;
+    width: 40px;
+    color: beige;
+    transition: .3s;
+}
+
+.btnBackTop:active{
+    border: 2px double darkred;
 }

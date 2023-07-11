@@ -87,8 +87,8 @@ function useAPI(){
         }, 1800)
     }, [])
 
-    const addFavorite = (id, name) =>{
-        const newFav = {id: id, name: name}
+    const addFavorite = (id, name, image) =>{
+        const newFav = {id: id, name: name, image: image}
         const newList = [...favorites, newFav]
         SetFavorites(newList);
         saveLocalStorage(newList)

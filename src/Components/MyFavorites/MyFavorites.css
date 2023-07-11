@@ -55,3 +55,17 @@
     color: darkred;
     transition: .4s;
 }
+
+.imgFav{
+    height: 55px;
+    width: 55px;
+    border: 1px solid darkred;
+    border-radius: 50%;
+}
+
+.imgFav:hover{
+    background: rgb(106, 106, 187);
+    border: 2px solid darkred;
+    border-radius: 0;
+    transition: .5s;
+}

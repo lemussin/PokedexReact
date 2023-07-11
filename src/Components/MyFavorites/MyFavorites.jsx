@@ -14,7 +14,7 @@ function MyFavorites(){
                 {
                     favorites.map(item => (
                         <li>
-                            <Link to={`/detail/${item.id}`} className="enlaceFav">{item.id} - {item.name}</Link>
+                            <Link to={`/detail/${item.id}`} className="enlaceFav"> <img src={item.image} className="imgFav" /> {item.id} - {item.name}</Link>
                         </li>
                     ))
                 }

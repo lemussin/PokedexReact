@@ -18,8 +18,8 @@ function Pokedex(){
     if(loadingPokedex) return <Loading />
 
     return(
-        <div className="backgroundDexList">
-            <h5>Pokédex de la Región {pokedexRegional.region}</h5>
+        <div>
+            <h5 id="dexRegional">Pokédex de la Región {pokedexRegional.region}</h5>
             <div className="row">
                 <div className="col-4">
                     <p>Total de Pokémon: <span class="badge bg-success">{pokemonDetails.length}</span></p>
@@ -29,6 +29,10 @@ function Pokedex(){
                 </div>
             </div>
             
+            <div className="backTop">
+                <a href="#dexRegional" className="btnBackTop"><i class="bi bi-arrow-up"></i></a>
+            </div>
+
             {!loadingPokedex && <PokemonList pokemonDetails={filteredList} idPokedex={idPokedex} />}
         </div>
     )
